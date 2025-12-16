@@ -21,22 +21,22 @@ pipeline {
                 script {
                     // Login to AWS ECR
                     sh '''
-                        aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 484468819850.dkr.ecr.ap-southeast-2.amazonaws.com
+                        aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 484468819850.dkr.ecr.ap-south-1.amazonaws.com
                     '''
 
                     // Build the Docker image
                     sh '''
-                        docker build -t new_namespace/repo .
+                        docker build -t new_namespace/repo22 .
                     '''
 
-                    // Tag the Docker image
+                    // Tag the Docker image correctly
                     sh '''
-                        docker tag new_namespace/repo:latest 484468819850.dkr.ecr.ap-southeast-2.amazonaws.com/new_namespace/repo:v$BUILD_NUMBER
+                        docker tag new_namespace/repo22:latest 484468819850.dkr.ecr.ap-south-1.amazonaws.com/namespace/repo22:v$BUILD_NUMBER
                     '''
 
                     // Push the Docker image to AWS ECR
                     sh '''
-                        docker push 484468819850.dkr.ecr.ap-southeast-2.amazonaws.com/new_namespace/repo:v$BUILD_NUMBER
+                        docker push 484468819850.dkr.ecr.ap-south-1.amazonaws.com/namespace/repo22:v$BUILD_NUMBER
                     '''
                 }
             }
