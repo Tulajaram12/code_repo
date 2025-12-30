@@ -24,12 +24,12 @@ jobs:
       uses: docker/build-push-action@v6
       with:
           push: true
-          tags: tulajaram/githubactions:v7
+          tags: tulajaram/githubactions:${{ github.run_number }}
     - name: Checkout Helm Chart Repo
       run: |
         cd
         git clone https://github.com/Tulajaram12/helm.git
-        sed -i 's|image:.*|image: tulajaram/githubactions:v7|' helm/webapp/values.yaml
+        sed -i 's|image:.*|image: tulajaram/githubactions:${{ github.run_number }}|' helm/webapp/values.yaml
         cd helm
         git add .
         git config user.name "github-actions"
