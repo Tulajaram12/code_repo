@@ -24,7 +24,7 @@ jobs:
       uses: docker/build-push-action@v6
       with:
           push: true
-          tags: tulajaram/githubactions:v1
+          tags: tulajaram/githubactions:v2
     - name: Checkout Helm Chart Repo
       uses: actions/checkout@v4
       with:
@@ -33,13 +33,14 @@ jobs:
         path: webapp
     - name: Update Helm Chart Image Tag
       run: |
-        sed -i 's|image:.*|image: tulajaram/githubactions:v1|' webapp/webapp/values.yaml
+        sed -i 's|image:.*|image: tulajaram/githubactions:v2|' webapp/webapp/values.yaml
         git config --global user.name "github-actions"
         git config --global user.email "github-actions@github.com"
     - name: Commit and Push Updated Helm Chart
       run: |
         git status
-        #git add webapp/webapp/values.yaml
+        git add .
+        git status
         #git commit -m "Update Docker image tag to latest"
         #git push https://x-access-token:${{ secrets.GIT_TOKEN }}@github.com/username/helm.git HEAD:main
         #env:
