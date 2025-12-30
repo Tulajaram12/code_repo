@@ -41,8 +41,8 @@ jobs:
         git status
         git add .
         git status
-        #git commit -m "Update Docker image tag to latest"
-        #git push https://x-access-token:${{ secrets.GIT_TOKEN }}@github.com/username/helm.git HEAD:main
+        git commit -m "Update Docker image tag to latest"
+        git push https://x-access-token:${{ secrets.GIT_TOKEN }}@github.com/username/helm.git HEAD:main
         #env:
         #GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
   
