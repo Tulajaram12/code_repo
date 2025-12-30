@@ -24,13 +24,14 @@ jobs:
       uses: docker/build-push-action@v6
       with:
           push: true
-          tags: tulajaram/githubactions:v6
+          tags: tulajaram/githubactions:v7
     - name: Checkout Helm Chart Repo
       run: |
         cd
         git clone https://github.com/Tulajaram12/helm.git
-        sed -i 's|image:.*|image: tulajaram/githubactions:v6|' helm/webapp/values.yaml
+        sed -i 's|image:.*|image: tulajaram/githubactions:v7|' helm/webapp/values.yaml
         cd helm
+        git add .
         git config user.name "github-actions"
         git config user.email "github-actions@github.com"
         git commit -m "Update Docker image tag to latest"
