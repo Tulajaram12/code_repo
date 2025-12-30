@@ -35,7 +35,7 @@ jobs:
       run: |
         echo `pwd`
         echo `ls -l webapp`
-        cat deployment.*
+        cat webapp/templates/deployment.*
         #sed -i 's|image:.*|image: tulajaram/githubactions:new|' webapp/values.yaml
         #git config --global user.name "github-actions"
         #git config --global user.email "github-actions@github.com"
