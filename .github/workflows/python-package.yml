@@ -30,17 +30,18 @@ jobs:
       with:
         repository: Tulajaram12/helm  
         token: ${{ secrets.GIT_TOKEN }}
-        path: webapp
+        path: helm-chart
     - name: Update Helm Chart Image Tag
       run: |
-        sed -i 's|image:.*|image: tulajaram/githubactions:v3|' webapp/webapp/values.yaml
-        git config --global user.name "github-actions"
-        git config --global user.email "github-actions@github.com"
+        sed -i 's|image:.*|image: tulajaram/githubactions:v3|' helm-chart/values.yaml
     - name: Commit and Push Updated Helm Chart
       run: |
         git status
         git add .
         git status
+        cd helm-chart
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
         git commit -m "Update Docker image tag to latest"
         git push https://x-access-token:${{ secrets.GIT_TOKEN }}@github.com/Tulajaram12/helm.git HEAD:main
         #env:
