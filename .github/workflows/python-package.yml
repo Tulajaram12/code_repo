@@ -34,8 +34,9 @@ jobs:
     - name: Update Helm Chart Image Tag
       run: |
         echo `pwd`
-        echo `ls -l webapp/templates`
-        cat webapp/templates/deployment.yaml
+        echo `ls -ltrh`
+        
+        #cat webapp/templates/deployment.yaml
         #sed -i 's|image:.*|image: tulajaram/githubactions:new|' webapp/values.yaml
         #git config --global user.name "github-actions"
         #git config --global user.email "github-actions@github.com"
