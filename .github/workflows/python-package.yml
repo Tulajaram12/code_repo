@@ -29,7 +29,8 @@ jobs:
       run: |
         cd
         git clone https://github.com/Tulajaram12/helm.git
-        sed -i 's|image:.*|image: tulajaram/githubactions:${{ github.run_number }}|' helm/webapp/values.yaml
+        sed -i 's|repository: .*|repository: tulajaram/githubactions|' helm/webapp/values.yaml
+        sed -i 's|tag: .*|tag: ${{ github.run_number }}' helm/webapp/values.yaml
         cd helm
         git add .
         git config user.name "github-actions"
