@@ -33,7 +33,8 @@ jobs:
         path: helm-chart
     - name: Update Helm Chart Image Tag
       run: |
-        echo `ls -l`
+        #echo `ls -l`
+        echo `ls -l helm-chart`
         #sed -i 's|image:.*|image: tulajaram/githubactions:v3|' helm-chart/values.yaml
     - name: Commit and Push Updated Helm Chart
       run: |
