@@ -24,12 +24,12 @@ jobs:
       uses: docker/build-push-action@v6
       with:
           push: true
-          tags: tulajaram/githubactions:v3
+          tags: tulajaram/githubactions:v4
     - name: Checkout Helm Chart Repo
       run: |
         cd
         git clone https://github.com/Tulajaram12/helm.git
-        sed -i 's|image:.*|image: tulajaram/githubactions:v3|' helm/webapp/values.yaml
+        #sed -i 's|image:.*|image: tulajaram/githubactions:v3|' helm/webapp/values.yaml
           #echo `ls -l`
           #echo `ls -l helm`
           #echo `ls -l helm/helm/`
@@ -44,17 +44,17 @@ jobs:
         #echo `ls -l`
         #echo `ls -l helm-chart`
       
-        #sed -i 's|image:.*|image: tulajaram/githubactions:v3|' helm/values.yaml
+        sed -i 's|image:.*|image: tulajaram/githubactions:v4|' helm/webapp/values.yaml
     - name: Commit and Push Updated Helm Chart
       run: |
         #git status
-        #git add .
+        git add .
         #git status
-        #cd helm-chart
-        #git config user.name "github-actions"
-        #git config user.email "github-actions@github.com"
-        #git commit -m "Update Docker image tag to latest"
-        #git push https://x-access-token:${{ secrets.GIT_TOKEN }}@github.com/Tulajaram12/helm.git HEAD:main
+        cd helm
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git commit -m "Update Docker image tag to latest"
+        git push https://x-access-token:${{ secrets.GIT_TOKEN }}@github.com/Tulajaram12/helm.git HEAD:main
         #env:
         #GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
   
