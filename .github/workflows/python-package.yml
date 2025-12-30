@@ -29,7 +29,7 @@ jobs:
       run: |
         cd
         git clone https://github.com/Tulajaram12/helm.git
-        echo `ls -l`
+        echo `ls -l helm/webapp`
       #uses: actions/checkout@v4
       #with:
       # repository: Tulajaram12/helm  
@@ -39,7 +39,7 @@ jobs:
       run: |
         #echo `ls -l`
         #echo `ls -l helm-chart`
-        #sed -i 's|image:.*|image: tulajaram/githubactions:v3|' helm-chart/values.yaml
+        sed -i 's|image:.*|image: tulajaram/githubactions:v3|' helm/webapp/values.yaml
     - name: Commit and Push Updated Helm Chart
       run: |
         #git status
