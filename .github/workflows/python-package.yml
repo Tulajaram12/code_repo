@@ -24,7 +24,7 @@ jobs:
       uses: docker/build-push-action@v6
       with:
           push: true
-          tags: tulajaram/githubactions:v4
+          tags: tulajaram/githubactions:v5
     - name: Checkout Helm Chart Repo
       run: |
         cd
@@ -43,8 +43,8 @@ jobs:
       run: |
         #echo `ls -l`
         #echo `ls -l helm-chart`
-      
-        sed -i 's|image:.*|image: tulajaram/githubactions:v4|' helm/webapp/values.yaml
+        cd      
+        sed -i 's|image:.*|image: tulajaram/githubactions:v5|' helm/webapp/values.yaml
     - name: Commit and Push Updated Helm Chart
       run: |
         #git status
