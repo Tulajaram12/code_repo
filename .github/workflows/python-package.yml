@@ -43,7 +43,7 @@ jobs:
         #echo `ls -l`
         #echo `ls -l helm-chart`
       
-        sed -i 's|image:.*|image: tulajaram/githubactions:v3|' helm/webapp/values.yaml
+        sed -i 's|image:.*|image: tulajaram/githubactions:v3|' helm/values.yaml
     - name: Commit and Push Updated Helm Chart
       run: |
         #git status
