@@ -35,7 +35,8 @@ jobs:
       run: |
         echo `pwd`
         echo `ls -ltrh`
-        
+        echo `ls -ltrh webapp`
+        echo `ls -ltrh webapp/templates`      
         #cat webapp/templates/deployment.yaml
         #sed -i 's|image:.*|image: tulajaram/githubactions:new|' webapp/values.yaml
         #git config --global user.name "github-actions"
